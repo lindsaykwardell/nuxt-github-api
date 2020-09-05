@@ -1,6 +1,6 @@
 {
   "name": "nuxt-plugin-github-api",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Nuxt module for GitHub v4 API",
   "main": "lib/index.js",
   "repository": {

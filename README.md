@@ -1,4 +1,4 @@
-# gridsome-source-github-api
+# nuxt-plugin-github-api
 
 Source plugin for pulling data into Nuxt from the official GitHub v4 [GraphQL API](https://developer.github.com/v4/). Data is fetched at build time, and can be used to create static assets.
 
