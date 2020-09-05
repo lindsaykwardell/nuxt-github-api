@@ -1,0 +1,27 @@
+{
+  "name": "nuxt-plugin-github-api",
+  "version": "0.0.1",
+  "description": "Nuxt module for GitHub v4 API",
+  "main": "lib/index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lindsaykwardell/nuxt-plugin-github-api.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "nuxt",
+    "nuxt-module",
+    "github"
+  ],
+  "author": "Lindsay Wardell",
+  "license": "MIT",
+  "dependencies": {
+    "isomorphic-fetch": "^2.2.1"
+  },
+  "devDependencies": {},
+  "files": [
+    "lib/**/*"
+  ]
+}

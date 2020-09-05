@@ -1,0 +1,8 @@
+#project
+lib
+
+#node
+node_modules
+
+#editor
+.vscode
