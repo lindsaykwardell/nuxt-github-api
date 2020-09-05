@@ -1,128 +1,73 @@
 # gridsome-source-github-api
 
-Source plugin for pulling data into Gridsome from the official GitHub v4 [GraphQL API](https://developer.github.com/v4/). 
+Source plugin for pulling data into Nuxt from the official GitHub v4 [GraphQL API](https://developer.github.com/v4/). Data is fetched at build time, and can be used to create static assets.
 
-Based on [gatsby-source-github-api](https://github.com/ldd/gatsby-source-github-api).
+Based on [gridsome-source-github-api](https://github.com/lindsaykwardell/gridsome-source-github-api).
 
 ## Install
 
-`npm i gridsome-source-github-api`
+`npm i nuxt-plugin-github-api`
+`yarn add nuxt-plugin-github-api`
 
 ## How to use
 
 Follow GitHub's guide [how to generate a token](https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/).
 
-Once you are done, either create a `gridsome-config.js` file or open the one you already have.
-
-In there, you want to add this plugin and at least add the token in the options object:
+Once you are done, go to `nuxt.config.js`. In there, you want to add `nuxt-plugin-github-api` as a module, and at least add the token in the options object:
 
 ```javascript
-// In your gridsome-config.js
-plugins: [
-  {
-    use: `gridsome-source-github-api`,
-    options: {
-      // token: required by the GitHub API
-      token: someString,
+// In your nuxt.config.js
+modules: [
+  ['nuxt-plugin-github-api', {
+    // token: required by the GitHub API
+    token: process.env.GITHUB_API_TOKEN,
 
-      // GraphQLquery: defaults to a search query
-      graphQLQuery: anotherString,
-
-      // variables: defaults to variables needed for a search query
-      variables: someObject
-    }
-  }
-];
-```
-
-## Examples
-
-**Search query:**
-
-```javascript
-// In your gridsome-config.js
-plugins: [
-  {
-    use: `gridsome-source-github-api`,
-    options: {
-      token: "hunter2",
-      variables: {
-        q: "author:lindsaykwardell state:closed type:pr sort:comments",
-        nFirst: 2
-      }
-    }
-  }
-];
-```
-
-resulting API call:
-
-```graphql
-  query ($nFirst: Int, $q: String) {
-    search(query: "${q}", type: ISSUE, first: ${nFirst}){
-      edges{
-        node{
-          ... on PullRequest{
-            title
-          }
+    // graphQLQuery: defaults to a search query
+    graphQLQuery: `
+      query {
+        user(login:"lindsaykwardell"){
+          name
+          avatarUrl
+          bio
+          isHireable
         }
-      }
-    }
-  }
-```
-
-**Custom GraphQL query:**
-
-```javascript
-// In your gridsome-config.js
-plugins: [
-  {
-    resolve: `gridsome-source-github-api`,
-    options: {
-      token: "hunter2",
-      variables: {},
-      graphQLQuery: `
-        query {
-          repository(owner:"torvalds",name:"linux"){
-            description
-          }
-        }
-        `
-    }
-  }
+      }`
+  }]
 ];
 ```
 
-resulting API call:
+In your Vue components, you can now access this data on `this.$github`. For example:
 
-```graphql
-query {
-  repository(owner: "torvalds", name: "linux") {
-    description
-  }
-}
-```
+```vue
 
-The data fetched from this plugin is added to your GraphQL metadata under githubData. For example:
+<template>
+  <div>
+    <div>
+      <img :src="$github.user.avatarUrl" />
+      <h2>{{$github.user.name}}</h2>
+      <h4>{{$github.user.bio}}</h4>
+      <p>{{lookingForAJob}}</p>
+    </div>
+  </div>
+</template>
 
-```graphql
-query {
-  metadata {
-    githubData{
-      user {
-        name
-      }
+<script>
+export default {
+  computed: {
+    lookingForAJob() {
+      return this.$github.user.isHireable 
+        ? 'Looking for a great place to work!' 
+        : 'Not currently looking for a job'
     }
   }
 }
+</script>
+
 ```
+
 
 ## Tips and Tricks
 
 You'll probably want to use valid GraphQL queries. To help you, GitHub has a [Query Explorer](https://developer.github.com/v4/explorer/) with auto-completion.
 
 ![Query Explorer](https://user-images.githubusercontent.com/1187476/30273078-69695a10-96c5-11e7-90b8-7dc876cc214a.png)
-
-## Changelog
-
-- `v0.1.0` Initial fork of `gatsby-source-github-api`
