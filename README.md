@@ -91,11 +91,11 @@ Copyright (c) Lindsay Wardell
 [npm-downloads-src]: https://img.shields.io/npm/dt/nuxt-plugin-github-api.svg
 [npm-downloads-href]: https://npmjs.com/package/nuxt-plugin-github-api
 
-[github-actions-ci-src]: https://github.com/{{ github }}/workflows/ci/badge.svg
-[github-actions-ci-href]: https://github.com/{{ github }}/actions?query=workflow%3Aci
+[github-actions-ci-src]: https://github.com/lindsaykwardell/nuxt-plugin-github-api/workflows/ci/badge.svg
+[github-actions-ci-href]: https://github.com/lindsaykwardell/nuxt-plugin-github-api/actions?query=workflow%3Aci
 
-[codecov-src]: https://img.shields.io/codecov/c/github/{{ github }}.svg
-[codecov-href]: https://codecov.io/gh/{{ github }}
+[codecov-src]: https://img.shields.io/codecov/c/github/lindsaykwardell/nuxt-plugin-github-api.svg
+[codecov-href]: https://codecov.io/gh/lindsaykwardell/nuxt-plugin-github-api
 
 [license-src]: https://img.shields.io/npm/l/nuxt-plugin-github-api.svg
 [license-href]: https://npmjs.com/package/nuxt-plugin-github-api
