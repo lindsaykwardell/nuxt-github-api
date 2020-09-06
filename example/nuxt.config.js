@@ -9,14 +9,17 @@ module.exports = {
   githubApi: {
     token: process.env.GITHUB_TOKEN,
     graphQLQuery: `
-    query {
-      user(login:"lindsaykwardell"){
+    query GetUser($login: String!) {
+      user(login: $login) {
         name
         avatarUrl
         bio
         isHireable
       }
     }
-    `
+    `,
+    variables: {
+      login: 'lindsaykwardell'
+    }
   }
 }
