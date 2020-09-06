@@ -25,7 +25,10 @@ yarn add nuxt-plugin-github-api # or npm install nuxt-plugin-github-api
 ```js
 {
   modules: [
-    // Must include options
+    // Simple usage
+    'nuxt-plugin-github-api',
+
+    // With options
     [
       'nuxt-plugin-github-api',
       {
@@ -34,18 +37,54 @@ yarn add nuxt-plugin-github-api # or npm install nuxt-plugin-github-api
 
         // graphQLQuery: defaults to a search query
         graphQLQuery: `
-      query {
-        user(login:"lindsaykwardell"){
+          query GetUser($login: String!) {
+            user(login: $login) {
+              name
+              avatarUrl
+              bio
+              isHireable
+            }
+          }
+          `,
+        
+        // variables: Object which includes any GraphQL variables required by your query.
+        variables: {
+          login: 'lindsaykwardell'
+        }
+      }
+    ]
+  ],
+}
+```
+
+You can also pass the options as a separate key:
+
+```js
+
+{
+  github: {
+    // token: required by the GitHub API
+    token: process.env.GITHUB_API_TOKEN,
+
+    // graphQLQuery: defaults to a search query
+    graphQLQuery: `
+      query GetUser($login: String!) {
+        user(login: $login) {
           name
           avatarUrl
           bio
           isHireable
         }
-      }`
       }
-    ]
-  ]
+      `,
+    
+    // variables: Object which includes any GraphQL variables required by your query.
+    variables: {
+      login: 'lindsaykwardell'
+    }
+  }
 }
+
 ```
 
 In your Vue components, you can now access this data on `this.$github`. For example:
