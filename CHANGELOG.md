@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.4](https://github.com/lindsaykwardell/nuxt-plugin-github-api/compare/v0.1.3...v0.1.4) (2020-09-06)
+
+
+### Bug Fixes
+
+* removed isomorphic-fetch ([4b09599](https://github.com/lindsaykwardell/nuxt-plugin-github-api/commit/4b09599635cfb5a71c59dd7abc904769fa6f5077))
+
 ### 0.1.3 (2020-09-06)
 
 
