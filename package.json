@@ -1,27 +1,53 @@
 {
   "name": "nuxt-plugin-github-api",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Nuxt module for GitHub v4 API",
-  "main": "lib/index.js",
+  "author": "Lindsay Wardell",
   "repository": {
     "type": "git",
     "url": "https://github.com/lindsaykwardell/nuxt-plugin-github-api.git"
   },
+  "license": "MIT",
+  "contributors": [
+    {
+      "name": "Lindsay Wardell"
+    }
+  ],
+  "files": [
+    "lib/**/*"
+  ],
+  "main": "lib/module.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "nuxt example",
+    "lint": "eslint --ext .js,.vue .",
+    "release": "yarn test && standard-version && git push --follow-tags && npm publish",
+    "test": "yarn lint && jest"
+  },
+  "dependencies": {
+    "isomorphic-fetch": "^2.2.1"
+  },
+  "devDependencies": {
+    "@babel/core": "latest",
+    "@babel/preset-env": "latest",
+    "@commitlint/cli": "latest",
+    "@commitlint/config-conventional": "latest",
+    "@nuxtjs/eslint-config": "latest",
+    "@nuxtjs/module-test-utils": "latest",
+    "babel-eslint": "latest",
+    "babel-jest": "latest",
+    "dotenv": "^8.2.0",
+    "eslint": "latest",
+    "husky": "latest",
+    "jest": "latest",
+    "nuxt-edge": "latest",
+    "standard-version": "latest"
+  },
+  "publishConfig": {
+    "access": "public"
   },
   "keywords": [
     "nuxt",
     "nuxt-module",
     "github"
-  ],
-  "author": "Lindsay Wardell",
-  "license": "MIT",
-  "dependencies": {
-    "isomorphic-fetch": "^2.2.1"
-  },
-  "devDependencies": {},
-  "files": [
-    "lib/**/*"
   ]
 }

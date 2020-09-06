@@ -1,8 +1,10 @@
-#project
-#lib
-
-#node
 node_modules
-
-#editor
+*.iml
+.idea
+*.log*
+.nuxt
 .vscode
+.DS_Store
+coverage
+dist
+.env

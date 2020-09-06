@@ -1,25 +1,31 @@
 # nuxt-plugin-github-api
 
+[![npm version][npm-version-src]][npm-version-href]
+[![npm downloads][npm-downloads-src]][npm-downloads-href]
+[![Github Actions CI][github-actions-ci-src]][github-actions-ci-href]
+[![Codecov][codecov-src]][codecov-href]
+[![License][license-src]][license-href]
+
 Source plugin for pulling data into Nuxt from the official GitHub v4 [GraphQL API](https://developer.github.com/v4/). Data is fetched at build time, and can be used to create static assets.
 
-Based on [gridsome-source-github-api](https://github.com/lindsaykwardell/gridsome-source-github-api).
+[📖 **Release Notes**](./CHANGELOG.md)
 
-## Install
+## Setup
 
-`npm i nuxt-plugin-github-api`
-`yarn add nuxt-plugin-github-api`
+1. Add `nuxt-plugin-github-api` dependency to your project
 
-## How to use
+```bash
+yarn add nuxt-plugin-github-api # or npm install nuxt-plugin-github-api
+```
 
-Follow GitHub's guide [how to generate a token](https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/).
+2. Add `nuxt-plugin-github-api` to the `modules` section of `nuxt.config.js`
 
-Once you are done, go to `nuxt.config.js`. In there, you want to add `nuxt-plugin-github-api` as a module, and at least add the token in the options object:
-
-```javascript
-// In your nuxt.config.js
-modules: [
-  ['nuxt-plugin-github-api', {
-    // token: required by the GitHub API
+```js
+{
+  modules: [
+    // Must include options
+    ['nuxt-plugin-github-api', { 
+      // token: required by the GitHub API
     token: process.env.GITHUB_API_TOKEN,
 
     // graphQLQuery: defaults to a search query
@@ -32,8 +38,9 @@ modules: [
           isHireable
         }
       }`
-  }]
-];
+     }]
+  ]
+}
 ```
 
 In your Vue components, you can now access this data on `this.$github`. For example:
@@ -65,6 +72,33 @@ export default {
 
 ```
 
+## Development
+
+1. Clone this repository
+2. Install dependencies using `yarn install` or `npm install`
+3. Start development server using `npm run dev`
+
+## License
+
+[MIT License](./LICENSE)
+
+Copyright (c) Lindsay Wardell
+
+<!-- Badges -->
+[npm-version-src]: https://img.shields.io/npm/v/nuxt-plugin-github-api/latest.svg
+[npm-version-href]: https://npmjs.com/package/nuxt-plugin-github-api
+
+[npm-downloads-src]: https://img.shields.io/npm/dt/nuxt-plugin-github-api.svg
+[npm-downloads-href]: https://npmjs.com/package/nuxt-plugin-github-api
+
+[github-actions-ci-src]: https://github.com/{{ github }}/workflows/ci/badge.svg
+[github-actions-ci-href]: https://github.com/{{ github }}/actions?query=workflow%3Aci
+
+[codecov-src]: https://img.shields.io/codecov/c/github/{{ github }}.svg
+[codecov-href]: https://codecov.io/gh/{{ github }}
+
+[license-src]: https://img.shields.io/npm/l/nuxt-plugin-github-api.svg
+[license-href]: https://npmjs.com/package/nuxt-plugin-github-api
 
 ## Tips and Tricks
 
