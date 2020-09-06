@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.5](https://github.com/lindsaykwardell/nuxt-plugin-github-api/compare/v0.1.4...v0.1.5) (2020-09-06)
+
+
+### Features
+
+* enabled passing variables to graphql query ([29048c4](https://github.com/lindsaykwardell/nuxt-plugin-github-api/commit/29048c490cd9fc5cc953194203f96e4e1aa10fb2))
+
 ### [0.1.4](https://github.com/lindsaykwardell/nuxt-plugin-github-api/compare/v0.1.3...v0.1.4) (2020-09-06)
 
 
