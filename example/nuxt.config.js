@@ -7,7 +7,7 @@ module.exports = {
   srcDir: __dirname,
   modules: [{ handler: require('../') }],
   githubApi: {
-    token: process.env.GITHUB_API_TOKEN,
+    token: process.env.API_TOKEN,
     graphQLQuery: `
     query {
       user(login:"lindsaykwardell"){
