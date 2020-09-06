@@ -35,6 +35,7 @@
     "@nuxtjs/module-test-utils": "latest",
     "babel-eslint": "latest",
     "babel-jest": "latest",
+    "cross-env": "^7.0.2",
     "dotenv": "^8.2.0",
     "eslint": "latest",
     "husky": "latest",

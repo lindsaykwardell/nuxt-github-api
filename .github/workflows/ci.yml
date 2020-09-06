@@ -39,9 +39,7 @@ jobs:
         run: yarn lint
 
       - name: Test
-        with:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: yarn test
+        run: GITHUB_TOKEN=${{ secrets.GITHUB_TOKEN }} yarn test
 
       - name: Coverage
         uses: codecov/codecov-action@v1
