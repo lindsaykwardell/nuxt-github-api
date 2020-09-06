@@ -40,6 +40,8 @@ jobs:
 
       - name: Test
         run: yarn test
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Coverage
         uses: codecov/codecov-action@v1
