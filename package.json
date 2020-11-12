@@ -1,6 +1,6 @@
 {
   "name": "nuxt-github-api",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "description": "Nuxt module for GitHub v4 API",
   "author": "Lindsay Wardell",
   "repository": {
