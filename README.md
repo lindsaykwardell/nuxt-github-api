@@ -1,4 +1,4 @@
-# nuxt-plugin-github-api
+# nuxt-github-api
 
 [![npm version][npm-version-src]][npm-version-href]
 [![npm downloads][npm-downloads-src]][npm-downloads-href]
@@ -14,23 +14,23 @@ Source plugin for pulling data into Nuxt from the official GitHub v4 [GraphQL AP
 
 1. Follow GitHub's guide to [generate a token](https://docs.github.com/en/github/authenticating-to-github/creating-a-personal-access-token).
 2. Add this token to your environment variables (_PLEASE_ don't commit this token!!!)
-3. Add `nuxt-plugin-github-api` dependency to your project
+3. Add `nuxt-github-api` dependency to your project
 
 ```bash
-yarn add nuxt-plugin-github-api # or npm install nuxt-plugin-github-api
+yarn add nuxt-github-api # or npm install nuxt-github-api
 ```
 
-2. Add `nuxt-plugin-github-api` to the `modules` section of `nuxt.config.js`
+2. Add `nuxt-github-api` to the `modules` section of `nuxt.config.js`
 
 ```js
 {
   modules: [
     // Simple usage
-    'nuxt-plugin-github-api',
+    'nuxt-github-api',
 
     // With options
     [
-      'nuxt-plugin-github-api',
+      'nuxt-github-api',
       {
         // token: required by the GitHub API
         token: process.env.GITHUB_API_TOKEN,
@@ -136,13 +136,13 @@ You'll probably want to use valid GraphQL queries. To help you, GitHub has a [Qu
 
 <!-- Badges -->
 
-[npm-version-src]: https://img.shields.io/npm/v/nuxt-plugin-github-api/latest.svg
-[npm-version-href]: https://npmjs.com/package/nuxt-plugin-github-api
-[npm-downloads-src]: https://img.shields.io/npm/dt/nuxt-plugin-github-api.svg
-[npm-downloads-href]: https://npmjs.com/package/nuxt-plugin-github-api
-[github-actions-ci-src]: https://github.com/lindsaykwardell/nuxt-plugin-github-api/workflows/ci/badge.svg
-[github-actions-ci-href]: https://github.com/lindsaykwardell/nuxt-plugin-github-api/actions?query=workflow%3Aci
-[codecov-src]: https://img.shields.io/codecov/c/github/lindsaykwardell/nuxt-plugin-github-api.svg
-[codecov-href]: https://codecov.io/gh/lindsaykwardell/nuxt-plugin-github-api
-[license-src]: https://img.shields.io/npm/l/nuxt-plugin-github-api.svg
-[license-href]: https://npmjs.com/package/nuxt-plugin-github-api
+[npm-version-src]: https://img.shields.io/npm/v/nuxt-github-api/latest.svg
+[npm-version-href]: https://npmjs.com/package/nuxt-github-api
+[npm-downloads-src]: https://img.shields.io/npm/dt/nuxt-github-api.svg
+[npm-downloads-href]: https://npmjs.com/package/nuxt-github-api
+[github-actions-ci-src]: https://github.com/lindsaykwardell/nuxt-github-api/workflows/ci/badge.svg
+[github-actions-ci-href]: https://github.com/lindsaykwardell/nuxt-github-api/actions?query=workflow%3Aci
+[codecov-src]: https://img.shields.io/codecov/c/github/lindsaykwardell/nuxt-github-api.svg
+[codecov-href]: https://codecov.io/gh/lindsaykwardell/nuxt-github-api
+[license-src]: https://img.shields.io/npm/l/nuxt-github-api.svg
+[license-href]: https://npmjs.com/package/nuxt-github-api

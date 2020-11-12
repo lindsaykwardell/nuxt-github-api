@@ -1,11 +1,11 @@
 {
-  "name": "nuxt-plugin-github-api",
+  "name": "nuxt-github-api",
   "version": "0.1.5",
   "description": "Nuxt module for GitHub v4 API",
   "author": "Lindsay Wardell",
   "repository": {
     "type": "git",
-    "url": "https://github.com/lindsaykwardell/nuxt-plugin-github-api.git"
+    "url": "https://github.com/lindsaykwardell/nuxt-github-api.git"
   },
   "license": "MIT",
   "contributors": [
