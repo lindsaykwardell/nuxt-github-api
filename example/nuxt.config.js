@@ -5,9 +5,11 @@ module.exports = {
   rootDir: resolve(__dirname, '..'),
   buildDir: resolve(__dirname, '.nuxt'),
   srcDir: __dirname,
-  modules: [{ handler: require('../') }],
+  buildModules: [{ handler: require('../') }],
+  privateRuntimeConfig: {
+    githubApiToken: process.env.GITHUB_TOKEN
+  },
   githubApi: {
-    token: process.env.GITHUB_TOKEN,
     graphQLQuery: `
     query GetUser($login: String!) {
       user(login: $login) {

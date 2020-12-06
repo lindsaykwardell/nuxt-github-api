@@ -17,55 +17,21 @@ Source plugin for pulling data into Nuxt from the official GitHub v4 [GraphQL AP
 3. Add `nuxt-github-api` dependency to your project
 
 ```bash
-yarn add nuxt-github-api # or npm install nuxt-github-api
+yarn add nuxt-github-api -D # or npm install nuxt-github-api --save-dev
 ```
 
-2. Add `nuxt-github-api` to the `modules` section of `nuxt.config.js`
+4. Add the following configuration to your `nuxt.config.js` file:
 
 ```js
 {
-  modules: [
-    // Simple usage
+  privateRuntimeConfig: {
+    // githubApiToken: required by the GitHub API
+    githubApiToken: process.env.GITHUB_TOKEN
+  },
+  buildModules: [
     'nuxt-github-api',
-
-    // With options
-    [
-      'nuxt-github-api',
-      {
-        // token: required by the GitHub API
-        token: process.env.GITHUB_API_TOKEN,
-
-        // graphQLQuery: defaults to a search query
-        graphQLQuery: `
-          query GetUser($login: String!) {
-            user(login: $login) {
-              name
-              avatarUrl
-              bio
-              isHireable
-            }
-          }
-          `,
-        
-        // variables: Object which includes any GraphQL variables required by your query.
-        variables: {
-          login: 'lindsaykwardell'
-        }
-      }
-    ]
   ],
-}
-```
-
-You can also pass the options as a separate key:
-
-```js
-
-{
-  github: {
-    // token: required by the GitHub API
-    token: process.env.GITHUB_API_TOKEN,
-
+  githubApi: {
     // graphQLQuery: defaults to a search query
     graphQLQuery: `
       query GetUser($login: String!) {
@@ -76,7 +42,7 @@ You can also pass the options as a separate key:
           isHireable
         }
       }
-      `,
+    `,
     
     // variables: Object which includes any GraphQL variables required by your query.
     variables: {
@@ -84,7 +50,6 @@ You can also pass the options as a separate key:
     }
   }
 }
-
 ```
 
 In your Vue components, you can now access this data on `this.$github`. For example:

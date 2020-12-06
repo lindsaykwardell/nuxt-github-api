@@ -12,38 +12,49 @@ describe('module', () => {
   })
 
   test('render', async () => {
-    // ;({ nuxt } = await setup(loadConfig(__dirname, '../../example')))
-
     const html = await get('/')
     expect(html).toContain('Lindsay Wardell')
   })
 
   test('throws error when no Github token is present', async () => {
+    let threwError = false
+
     try {
       ;({ nuxt } = await setup(
         loadConfig(__dirname, '../../example', {
-          githubApi: {
-            token: null
+          privateRuntimeConfig: {
+            githubApiToken: null
           }
         })
       ))
     } catch (err) {
+      threwError = true
       expect(err.toString().includes('Missing GitHub API token!')).toBe(true)
     }
+
+    expect(threwError).toBe(true)
   })
 
   test('throws error when query is invalid', async () => {
+    let threwError = false
+
     try {
       ;({ nuxt } = await setup(
         loadConfig(__dirname, '../../example', {
           githubApi: {
-            token: process.env.GITHUB_TOKEN,
             graphQLQuery: 'invalid query'
           }
         })
       ))
     } catch (err) {
-      expect(err.toString().includes('GitHub API queries must be wrapped in `query{}`')).toBe(true)
+      threwError = true
+      expect(
+        err
+          .toString()
+          .includes('GitHub API queries must be wrapped in `query{}`')
+      ).toBe(true)
     }
+
+    expect(threwError).toBe(true)
   })
 })
