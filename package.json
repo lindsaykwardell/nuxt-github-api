@@ -1,6 +1,6 @@
 {
   "name": "nuxt-github-api",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "Nuxt module for GitHub v4 API",
   "author": "Lindsay Wardell",
   "repository": {
@@ -21,6 +21,7 @@
     "dev": "nuxt example",
     "lint": "eslint --ext .js,.vue .",
     "release": "yarn test && standard-version && git push --follow-tags && npm publish",
+    "release-next": "yarn test && standard-version && git push --follow-tags && npm publish --tag next",
     "test": "yarn lint && jest"
   },
   "dependencies": {},
